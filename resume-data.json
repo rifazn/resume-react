@@ -1,0 +1,136 @@
+{
+	"name": "Rifaz Nahiyan",
+	"tagline": "Pythonista | Aspiring Back-end Engineer",
+
+	"contactInfo": [
+		{"type": "email", "value": "rifaz_j@protonmail.com"},
+		{"phone": "+8801568923541"},
+		{"address": "Dholaikhal, Dhaka"},
+		{"nationality": "Bangladeshi"},
+		{"website": "https://tiny.cc/rifazn"}
+	],
+
+	"sections": [
+		{
+			"title": "Education",
+
+			"subsections": [
+				{
+					"title": "BSc. in CSE",
+					"subtitle": "United International University",
+					"description": [
+						"_CGPA: 3.2_",
+						"**Currently writing a conference paper on my finished capstone project that aims to allow disabled people to browse the Internet more effortlessly."
+					],
+					"timeperiod": "Jun 2015 - May 2021",
+					"decorator": true
+				},
+				{
+					"title": "O and A Levels",
+					"subtitle": "Maple Leaf International School",
+					"description": [
+						"_O Levels with a 4.2 CGPA in 2011_",
+						"_A Levels with a 3.5 CGPA in 2013_",
+						"_(Edexcel GCSE)_"
+					],
+					"timeperiod": "2011 and 2013 respectively",
+					"decorator": true
+				},
+				{
+					"title": "Harvard's Web Programming with Python and Javascript",
+					"description": [
+						"I am trying to learn how to make web projects _scalable_ from this online course on the [edx.org](https://edx.org) platform. This course is being offered as an MOOC from the _Harvard University_."
+					],
+					"timeperiod": "ongoing",
+					"decorator": true
+				}
+			]
+		},
+
+		{
+			"title": "Some other projects",
+
+			"subsections": [
+				{
+					"title": "dark-toggle",
+					"description": [
+						"A _shell_ script (for the Linux and BSD Operating Systems) that automatically toggles between the light adn dark variants of the currently active _System_ and _Applications_ theme.",
+						"+ _Language: Shell script_",
+						"+ _Repo (Currently 15 stars): https://github.com/rifazn/dark-toggle"
+					],
+					"timeperiod": "Sep 2021",
+					"decorator": true
+				},
+				{
+					"title": "Subtitle-DL",
+					"description": [
+						"A python script that fetches subtitles of _any movie_ from [opensubtitles.org](opensubtitles.org) by consuming their REST API. Can be used in CLI, or as a backend for GUI and web-based programs.",
+						"+ _Language: Python_",
+						"+ _Repo (Currently unpublished): https://github.com/rifazn/subtitle-dl_"
+					],
+					"timeperiod": "April 2021",
+					"decorator": true
+				},
+				{
+					"title": "A webapp that fetches book ratings from Goodreads.com",
+					"description": [
+						"This is a webapp that I made as a project for _Harvard's CS50x Web Programming_ online course (the course is still ongoing).",
+						"+ _Language: Python, Flask_",
+						"+ _Video demonstration: https://youtu.be/427Z2yCrviE_"
+					],
+					"timeperiod": "Feb 2021",
+					"decorator": true
+				},
+				{
+					"title": "A Wikipedia clone",
+					"description": [
+						"This is a simple web-app that partially imitates the functionality of Wikipedia.org. Anyone can _add_ and _modify_ existing pages using _Markdown_ (instead of _wikitext_)",
+						"+ _Technology: Python, Django, Markdown_",
+						"+ _Video demonstration: https://youtu.be/aUZJcr1_lBo_"
+					],
+					"timeperiod": "Mar 2021",
+					"decorator": true
+				},
+				{
+					"title": "My GitHub",
+					"description": [
+						"Further projects (finished/unfinished), some algorithm implementations in C, and a word vectorizer written in Python in my GitHub profile:",
+						"+ _https://github.com/rifazn_"
+					],
+					"decorator": true
+				}
+			]
+		},
+
+		{
+			"title": "Open Source Related",
+
+			"subsections": [
+				{
+					"title": "Source Code contributions",
+					"subtitle": "I3IPC-Python",
+					"description": [
+						"The 'i3ipc-python' is an Inter-Process Communication (IPC) library for interacting with the tiling window managers 'i3wm' and 'Sway WM' for the GNU/Linux desktop",
+						"I have two _accepted_ **Pull Requests** to the main project rep currently:",
+						"1. _https://github.com/altdesktop/i3ipc-python/issues/170_: The ‘SwayWM’ version of the library was missing an API that returns all GUI windows belonging to a given app by name.",
+						"2. _https://github.com/altdesktop/i3ipc-python/issues/172_: The same framework was also missing an API that was part of the SwayWM’s IPC speciﬁcations, so I implemented it."
+					],
+					"decorator": true
+				},
+				{
+					"title": "Volunteering at the Mozilla Foundation",
+					"description": [
+						"I was one of the core volunteers of the Mozilla Bangladesh team. For my contributions to Mozilla’s ultimate mission of the “Open Web”, I was ﬂown (free of cost) to San Francisco, California, USA, to attend the Mozilla Summit 2013.",
+						"More about the kinds of activities that I did as a volunteer:",
+						"https://0x0.st/N6YH"
+					]
+				}
+			]
+		}
+	],
+
+	"fancyProgressBars": [
+		["Web development", "4/5"],
+		["Compression", "3/5"]
+	]
+}
