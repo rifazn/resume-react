@@ -8,6 +8,41 @@ export default function Form(props) {
     return createInputField(k, v);
   });
 
+  const sectionFields = props.data.sections.map((section) => {
+    const subsections = section.subsections.map((subsection) => {
+      return (
+        <fieldset name="subsections[]">
+          <label>Discipline (Degree, Position, Role, etc.)
+            <input type="text" name="discipline" value={subsection.title} />
+          </label>
+          <label>Institute (School, Employer, Project Name, etc.)
+            <input type="text" name="institute" value={subsection.subtitle} />
+          </label>
+          <label>Description
+            <textarea
+              value={ subsection.description.reduce((string, line) => string + '\n\n' + line)}>
+            </textarea>
+          </label>
+          <label>Timeperiod (Ex: Jun 2015 - Jan 2022)
+            <input type="text" name="timeperiod" value={subsection.timeperiod} />
+          </label>
+        </fieldset>
+      );
+    });
+
+    return (
+      <fieldset name="sections[]">
+        <legend>{section.title}</legend>
+
+        <label>Section Name (Ex: Education, Employment, Projects, etc.)
+          <input type="text" name="title" />
+        </label>
+
+        {subsections}
+      </fieldset>
+    )
+  });
+
   const contactInfoButtons = [
     "email", "city", "website", "other"
   ].map((type) => {
@@ -43,28 +78,7 @@ export default function Form(props) {
       </fieldset>
 
       { /* There can be multiple fieldsets with name "sections" */ }
-      <fieldset name="sections[]">
-        <legend>{props.data.sections[0].title}</legend>
-        <label>Section Name (Ex: Education, Employment, Projects, etc.)
-          <input type="text" name="title" />
-        </label>
-
-        <fieldset name="subsections[]">
-          <label>Discipline (Degree, Position, Role, etc.)
-            <input type="text" name="discipline" />
-          </label>
-          <label>Institute (School, Employer, Project Name, etc.)
-            <input type="text" name="institute" />
-          </label>
-          <label>Description
-            <input type="text" name="description" />
-          </label>
-          <label>Timeperiod (Ex: Jun 2015 - Jan 2022)
-            <input type="text" name="timeperiod" />
-          </label>
-        </fieldset>
-
-      </fieldset>
+      {sectionFields}
     </form>
   );
 }
