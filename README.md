@@ -15,9 +15,9 @@ With this app, the user can:
 
 ## TODOs:
 
-~~1. Write existing resume data in a JSON file.~~
-2. Generate form fields from json data.
-3. Pre-populate form with json data.
-4. Modifying form inputs updates app state.
-5. All data from form is correctly updated on the rendered resume.
-6. Fix styling and rest of the issues.
+1. [X] Write existing resume data in a JSON file.
+2. [X] Generate form fields from json data.
+3. [X] Pre-populate form with json data.
+4. [ ] Modifying form inputs updates app state.
+5. [ ] All data from form is correctly updated on the rendered resume.
+6. [ ] Fix styling and rest of the issues.

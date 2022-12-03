@@ -11,3 +11,31 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+fieldset {
+  margin: 0.5rem 0;
+}
+
+legend {
+    background-color: #000;
+    color: #fff;
+    padding: 3px 6px;
+}
+
+input {
+    margin: .4rem 0;
+    padding: 0.2rem;
+    display: block;
+}
+
+label, textarea {
+  display: block;
+}
+
+.my-1rem {
+  margin: 1rem 0;
+}
+
+.my-2rem {
+  margin: 2rem 0;
+}

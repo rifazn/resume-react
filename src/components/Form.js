@@ -11,27 +11,27 @@ export default function Form(props) {
   const sectionFields = props.data.sections.map((section) => {
     const subsections = section.subsections.map((subsection) => {
       return (
-        <fieldset name="subsections[]">
+        <fieldset name="subsections[]" classNames="my-1rem">
           <label>Discipline (Degree, Position, Role, etc.)
-            <input type="text" name="discipline" value={subsection.title} />
+            <input type="text" name="discipline" size="20" value={subsection.title} />
           </label>
           <label>Institute (School, Employer, Project Name, etc.)
-            <input type="text" name="institute" value={subsection.subtitle} />
+            <input type="text" name="institute" size="20" value={subsection.subtitle} />
           </label>
           <label>Description
-            <textarea
+            <textarea rows="8" cols="50"
               value={ subsection.description.reduce((string, line) => string + '\n\n' + line)}>
             </textarea>
           </label>
           <label>Timeperiod (Ex: Jun 2015 - Jan 2022)
-            <input type="text" name="timeperiod" value={subsection.timeperiod} />
+            <input type="text" name="timeperiod" size="20" value={subsection.timeperiod} />
           </label>
         </fieldset>
       );
     });
 
     return (
-      <fieldset name="sections[]">
+      <fieldset name="sections[]" classNames="my-2rem">
         <legend>{section.title}</legend>
 
         <label>Section Name (Ex: Education, Employment, Projects, etc.)
@@ -70,7 +70,7 @@ export default function Form(props) {
       </label>
 
       { /* This fieldset can have varying number of input fields */ }
-      <fieldset name="contactInfo">
+      <fieldset name="contactInfo" classNames="my-2rem">
         <legend>Contact Info</legend>
         {contactFields}
         {additionalFields}
