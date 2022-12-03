@@ -3,7 +3,7 @@
 	"tagline": "Pythonista | Aspiring Back-end Engineer",
 
 	"contactInfo": [
-		{"type": "email", "value": "rifaz_j@protonmail.com"},
+		{"email": "rifaz_j@protonmail.com"},
 		{"phone": "+8801568923541"},
 		{"address": "Dholaikhal, Dhaka"},
 		{"nationality": "Bangladeshi"},
