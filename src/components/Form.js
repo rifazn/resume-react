@@ -54,23 +54,48 @@ export default function Form(props) {
     );
   });
 
+
+  /* Event handlers --------------------------------------- */
+
   function contactInfoButtonHandler(ev) {
     const btn = ev.target;
     const input = createInputField(btn.dataset.type, '');
     setAdditionalFields([...additionalFields, input]);
   }
 
+  function handleBasicInfo(event) {
+    const val = event.target.value;
+    props.setData({...props.data, [event.target.name]: val});
+  }
+
+  function handleContactInfo(event) {
+    const val = event.target.value;
+    const name = event.target.name;
+    //
+    //
+    const newContactInfo = props.data.contactInfo.map((contact) => {
+      const key = Object.keys(contact)[0];
+      if (key === name) return {[name]: val};
+      return contact;
+    })
+    // const newContactInfo = {...props.data.contactInfo, phone: val};
+    props.setData({...props.data, contactInfo: newContactInfo});
+  }
+
   return (
     <form name="resumeForm">
-      <label>Your Name
-        <input name="name" type="text" value={props.data.name} />
-      </label>
-      <label>Tagline
-        <input name="tagline" type="text" value={props.data.tagline} />
-      </label>
+      <fieldset name="basicInfo" onChange={handleBasicInfo}>
+        <legend>Basic Info</legend>
+        <label>Your Name
+          <input name="name" type="text" value={props.data.name} />
+        </label>
+        <label>Tagline
+          <input name="tagline" type="text" value={props.data.tagline} />
+        </label>
+      </fieldset>
 
       { /* This fieldset can have varying number of input fields */ }
-      <fieldset name="contactInfo" classNames="my-2rem">
+      <fieldset name="contactInfo" classNames="my-2rem" onChange={handleContactInfo}>
         <legend>Contact Info</legend>
         {contactFields}
         {additionalFields}

@@ -1,12 +1,14 @@
-import Form from "./components/Form"
+import Form from "./components/Form";
+import { useState } from 'react';
 
 function App(props) {
-  console.log(props.data);
+  const [data, setData] = useState(props.data);
+  console.log(data);
   return (
     <div className="App">
       <header>React Resume</header>
       <p>Hello, world!</p>
-      <Form data={props.data} />
+      <Form data={data} setData={setData} />
     </div>
   );
 }
