@@ -3,9 +3,9 @@ import React, { useState } from "react";
 export default function Form(props) {
   const [additionalFields, setAdditionalFields] = useState([]);
   
-  const contactFields = props.data.contactInfo.map((field) => {
+  const contactFields = props.data.contactInfo.map((field, index) => {
     const [k, v] = Object.entries(field)[0];
-    return createInputField(k, v);
+    return createInputField(k, v, index);
   });
 
   const sectionFields = props.data.sections.map((section) => {
@@ -71,14 +71,13 @@ export default function Form(props) {
   function handleContactInfo(event) {
     const val = event.target.value;
     const name = event.target.name;
-    //
-    //
-    const newContactInfo = props.data.contactInfo.map((contact) => {
-      const key = Object.keys(contact)[0];
-      if (key === name) return {[name]: val};
+    const id = parseInt(event.target.id);
+    const newContactInfo = props.data.contactInfo.map((contact, index) => {
+      // const key = Object.keys(contact)[0];
+      // if (key === name) return {[name]: val};
+      if (index === id) return {[name]: val};
       return contact;
-    })
-    // const newContactInfo = {...props.data.contactInfo, phone: val};
+    });
     props.setData({...props.data, contactInfo: newContactInfo});
   }
 
@@ -108,10 +107,10 @@ export default function Form(props) {
   );
 }
 
-function createInputField(name, value) {
+function createInputField(name, value, index) {
   return (
-    <label>{titleCase(name)}
-      <input type={getInputType(name)} name={name} value={value} data-iconName={name} />
+    <label key={index}>{titleCase(name)}
+      <input type={getInputType(name)} name={name} id={index} value={value} data-iconName={name} />
     </label>
   );
 

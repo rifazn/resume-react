@@ -19,11 +19,11 @@ With this app, the user can:
 2. [X] Generate form fields from json data.
 3. [X] Pre-populate form with json data.
 4. [~] Modifying form inputs updates app state.
-	1. ContactInfo is currently updating by looking up `name`
-	2. Updating fields should happen by `key` attribute in react
-	3. Install `nanoid` for that. Have `key` fields in data after app is loaded
-	4. At time of finally saving the data, remove `key` from data.
-	5. When `nanoid` is done, additionalfields can also be inside contactFields.
+	1. [X] ContactInfo is currently updating by looking up `name`
+	2. [X] ~~Updating fields should happen by `key` attribute in react~~. By `index` and `id` attrs.
+	3. [~] ~~Install `nanoid` for that. Have `key` fields in data after app is loaded~~. Decided against random keys.
+	4. [~] ~~At time of finally saving the data, remove `key` from data.~~ No need.
+	5. [~] When `nanoid` is done, additionalfields can also be inside contactFields.~~ No need..
 	6. `sections` is still remaining.
 5. [ ] All data from form is correctly updated on the rendered resume.
 6. [ ] Fix styling and rest of the issues.
