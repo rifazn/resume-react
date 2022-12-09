@@ -12,22 +12,23 @@
 
 	"sections": [
 		{
-			"title": "Education",
+			"title": "SEducation",
 
 			"subsections": [
 				{
-					"title": "BSc. in CSE",
-					"subtitle": "United International University",
+					"subject": "BSc. in CSE",
+					"organization": "United International University",
 					"description": [
 						"_CGPA: 3.2_",
-						"**Currently writing a conference paper on my finished capstone project that aims to allow disabled people to browse the Internet more effortlessly."
+						"",
+						"**Currently writing a conference paper on my finished capstone project that aims to allow disabled people to browse the Internet more effortlessly.**"
 					],
 					"timeperiod": "Jun 2015 - May 2021",
 					"decorator": true
 				},
 				{
-					"title": "O and A Levels",
-					"subtitle": "Maple Leaf International School",
+					"subject": "O and A Levels",
+					"organization": "Maple Leaf International School",
 					"description": [
 						"_O Levels with a 4.2 CGPA in 2011_",
 						"_A Levels with a 3.5 CGPA in 2013_",
@@ -37,7 +38,7 @@
 					"decorator": true
 				},
 				{
-					"title": "Harvard's Web Programming with Python and Javascript",
+					"subject": "Harvard's Web Programming with Python and Javascript",
 					"description": [
 						"I am trying to learn how to make web projects _scalable_ from this online course on the [edx.org](https://edx.org) platform. This course is being offered as an MOOC from the _Harvard University_."
 					],
@@ -52,7 +53,7 @@
 
 			"subsections": [
 				{
-					"title": "dark-toggle",
+					"subject": "dark-toggle",
 					"description": [
 						"A _shell_ script (for the Linux and BSD Operating Systems) that automatically toggles between the light adn dark variants of the currently active _System_ and _Applications_ theme.",
 						"+ _Language: Shell script_",
@@ -62,7 +63,7 @@
 					"decorator": true
 				},
 				{
-					"title": "Subtitle-DL",
+					"subject": "Subtitle-DL",
 					"description": [
 						"A python script that fetches subtitles of _any movie_ from [opensubtitles.org](opensubtitles.org) by consuming their REST API. Can be used in CLI, or as a backend for GUI and web-based programs.",
 						"+ _Language: Python_",
@@ -72,7 +73,7 @@
 					"decorator": true
 				},
 				{
-					"title": "A webapp that fetches book ratings from Goodreads.com",
+					"subject": "A webapp that fetches book ratings from Goodreads.com",
 					"description": [
 						"This is a webapp that I made as a project for _Harvard's CS50x Web Programming_ online course (the course is still ongoing).",
 						"+ _Language: Python, Flask_",
@@ -82,7 +83,7 @@
 					"decorator": true
 				},
 				{
-					"title": "A Wikipedia clone",
+					"subject": "A Wikipedia clone",
 					"description": [
 						"This is a simple web-app that partially imitates the functionality of Wikipedia.org. Anyone can _add_ and _modify_ existing pages using _Markdown_ (instead of _wikitext_)",
 						"+ _Technology: Python, Django, Markdown_",
@@ -92,7 +93,7 @@
 					"decorator": true
 				},
 				{
-					"title": "My GitHub",
+					"subject": "My GitHub",
 					"description": [
 						"Further projects (finished/unfinished), some algorithm implementations in C, and a word vectorizer written in Python in my GitHub profile:",
 						"+ _https://github.com/rifazn_"
@@ -107,8 +108,8 @@
 
 			"subsections": [
 				{
-					"title": "Source Code contributions",
-					"subtitle": "I3IPC-Python",
+					"subject": "Source Code contributions",
+					"organization": "I3IPC-Python",
 					"description": [
 						"The 'i3ipc-python' is an Inter-Process Communication (IPC) library for interacting with the tiling window managers 'i3wm' and 'Sway WM' for the GNU/Linux desktop",
 						"I have two _accepted_ **Pull Requests** to the main project rep currently:",
@@ -118,7 +119,7 @@
 					"decorator": true
 				},
 				{
-					"title": "Volunteering at the Mozilla Foundation",
+					"subject": "Volunteering at the Mozilla Foundation",
 					"description": [
 						"I was one of the core volunteers of the Mozilla Bangladesh team. For my contributions to Mozilla’s ultimate mission of the “Open Web”, I was ﬂown (free of cost) to San Francisco, California, USA, to attend the Mozilla Summit 2013.",
 						"More about the kinds of activities that I did as a volunteer:",
