@@ -1,4 +1,5 @@
 import React from "react";
+import { getIcon } from "./FontAwesomeIcons"
 
 export default function Form(props) {
   const contactFields = props.data.contactInfo.map((field, index) => {
@@ -42,12 +43,12 @@ export default function Form(props) {
   });
 
   const contactInfoButtons = [
-    "email", "city", "website", "other"
+    "email", "address", "website", "date of birth", "other"
   ].map((type) => {
     return (
       <button type="button" data-type={type}
         onClick={(ev) => contactInfoButtonHandler(ev)}>
-        Add {titleCase(type)}
+        {getIcon(type)} Add {titleCase(type)}
       </button>
     );
   });
