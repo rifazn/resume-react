@@ -1,15 +1,19 @@
 import Form from "./components/Form";
+import Resume from "./components/Resume";
 import { useState } from 'react';
 
 function App(props) {
   const [data, setData] = useState(props.data);
-  console.log(data);
   return (
-    <div className="App">
+    <>
       <header>React Resume</header>
-      <p>Hello, world!</p>
-      <Form data={data} setData={setData} />
-    </div>
+      <div className="App">
+        <Form data={data} setData={setData} />
+        <output htmlFor="resumeForm">
+          <Resume data={data} />
+        </output>
+      </div>
+    </>
   );
 }
 
