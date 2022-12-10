@@ -1,6 +1,8 @@
 import { getIcon } from './FontAwesomeIcons'
 import '../styles/resume.css'
 
+import { Remarkable } from 'remarkable';
+
 function Resume(props) {
   return (
     <div id="resume">
@@ -47,6 +49,7 @@ function Sections(props) {
    * and subsections, which include the subject of the topic (like job role,
     * education degree), name of the organization (a schoold, or place of
     * employment), and a description of the role */
+  const md = new Remarkable();
 
   /* Render the subsections that includes the timeperiods */
   function Subsections(props) {
@@ -60,10 +63,7 @@ function Sections(props) {
           <div class="gutter"></div>
           <div class="job-description">
             <h4>{subsection.organization}</h4>
-            <p>
-              <em>CGPA: 3.2</em><br /><br />
-            </p>
-            <p><strong>Currently writing a conference paper on my finished capstone project that aims to allow disabled people to browse the Internet more effortlessly.</strong></p>
+            <div dangerouslySetInnerHTML={{__html: md.render(subsection.description.join("\n"))}} />
           </div>
         </>
       );
