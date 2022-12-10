@@ -1,0 +1,272 @@
+/* @font-face { font-family: Raleway; src: url("font/Raleway/Raleway-Regular.ttf") format("truetype"); font-style: normal; font-weight: 400; font-display: swap; } */
+/* @font-face { font-family: Raleway; src: url("font/Raleway/Raleway-Italic.ttf") format("truetype"); font-style: italic; font-weight: 400; font-display: swap; } */
+/* @font-face { font-family: Raleway; src: url("font/Raleway/Raleway-Bold.ttf") format("truetype"); font-style: normal; font-weight: 700; font-display: swap; } */
+
+/* General setup. Setting up the containers; @media and @page rules. */
+body {
+    background: #EEEEEE;
+    margin: 40px 0;
+}
+
+#resume {
+    margin: 0 auto;
+    max-width: 912px;
+    background: #FFFFFF;
+    border: 1px solid #CCCCCC;
+    box-shadow: 2px 2px 4px #AAAAAA;
+    -webkit-box-shadow: 2px 2px 4px #AAAAAA;
+}
+
+@media screen and (max-width: 800px) {
+    body {
+        font-size: 16pt;
+        margin: 0;
+        padding: 0;
+        background: #FFFFFF !important;
+    }
+    #resume {
+        margin: 0;
+        /* padding: 1em; */
+        border: 0px;
+        background: none;
+        box-shadow: none;
+        -webkit-box-shadow: none;
+    }
+}
+
+@media print {
+    body {
+        font-size: 10pt;
+        margin: 0;
+        padding: 0;
+        background: none;
+    }
+    #resume {
+        margin: 0;
+        padding: 0;
+        border: 0px;
+        background: none;
+        box-shadow: none;
+        -webkit-box-shadow: none;
+    }
+    /* Make links black in PDF */
+    a, a:link, a:visited, a:hover {
+        color: #000000;
+        text-decoration: underline;
+    }
+}
+
+@page {
+    /* Change margins and paper size of PDF */
+    /* https://developer.mozilla.org/en-US/docs/Web/CSS/@page */
+    size: letter;
+    /*margin: 0.5in 0.8in;*/
+    margin: 0;
+}
+
+
+/* Layout Settings. Mainly `display` related rules here */
+#bio {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 0.12em solid #e2e2e2;
+}
+
+#sections {
+    display: grid;
+    grid-template-columns: 2fr 0.62em 5fr;
+    column-gap: 0.62em;
+}
+
+#sections h2 {
+    grid-column: 1;
+}
+
+#sections .time-period {
+    grid-column: 1;
+}
+
+.gutter, .decorator {
+    grid-column: 2;
+}
+
+#sections h3, #sections h4, #sections .job-description {
+    grid-column: 3;
+}
+
+#skills {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+
+/* Font Settings */
+body {
+    font: 1em "Raleway", "Libertinus Sans", "Calibri", "Helvetica", sans-serif;
+    color: #000000;
+    line-height: 1.15;
+}
+
+h1 {
+    font-size: 2.5em;
+    letter-spacing: 0;
+    white-space: pre;
+}
+
+#bio p {
+    font-size: 1.3em;
+}
+
+h2 {
+    font-size: 1.3em;
+}
+
+h3 {
+    font-size: 1.1em;
+}
+
+h4 {
+    font-size: 1em;
+}
+
+p, ul {
+  font-size: inherit;
+}
+
+a {
+    font-style: italic;
+    text-decoration: underline;
+    color: black;
+}
+
+#bio ul:first-of-type > li a {
+    text-decoration: none; color: inherit; font-style: normal;
+}
+
+.skill { font-weight: bold; }
+
+.fa-xs { color: #3d93e3 !important; }
+
+h1, i, h2, h4 {
+    color: #3d93e3;
+}
+
+
+/* Box Model Properties. Width, Height, Padding, Margin, etc. */
+
+#bio {
+    padding: 40px 60px;
+    background-color: #f5f5f5;
+}
+
+#sections {
+    padding: 40px 60px;
+    padding-top: 0;
+}
+
+h1 {
+    margin: 0;
+    padding: 0;
+}
+
+h2 {
+    margin: 1.2em 0 0 0;
+    padding: 0;
+}
+
+h3 {
+    margin: 0.8em 0 0.3em 0;
+    padding: 0;
+}
+
+p {
+    margin: 0 0 0.5em 0;
+    padding: 0;
+}
+
+ul {
+    padding: 0;
+    margin: 0 1.5em;
+}
+/* ul immediately after h1 = contact list */
+h1 + ul > li {
+    display: inline;
+    white-space: pre;
+    list-style-type: none;
+}
+
+h1 + ul + p {
+    margin: 1em 0;
+}
+
+.gutter {
+    margin: 0 auto;
+    width: .12em;  /* == 2px at 16px font-size */
+    background-color: #e2e2e2;
+}
+
+.decorator {
+	height: 100%;
+    width: .12em;  /* == 2px at 16px font-size */
+	background-color: #e2e2e2;
+	margin: 0 auto;
+}
+
+.decorator > div {
+    width:  .62em;  /* at 16px font-size it is 10px */
+	height: .62em;
+	background-color: #3d93e3;
+                                 
+	margin: 0 auto;
+    
+	position: relative;
+	left: -0.31em;
+	top: 1.15em;
+}
+
+#skills {
+    margin-top: 1.68em;  /* check if equal to 27 px? */
+}
+
+.skill{ margin-bottom: 1em; padding-right: 1em; }
+
+
+.skill-level {
+    height: 0.37em; width: 100%; background-color: #ebf4fc; position: relative;
+}
+
+.skill-level > span {
+    display: block; height: 100%; background-color: #3d93e3;
+}
+
+
+h4 { margin-top: 0; margin-bottom: 0.12em; }
+
+#bio ul:first-of-type {
+  margin: 0;
+  padding: 0;
+}
+
+#bio ul:first-of-type > li {
+  list-style-type: none;
+  display: inline-block;
+  margin-right: 20px;;
+}
+
+#bio img {
+  border-radius: 100%;
+  border: 1px solid #ccc;
+  width: 101px;
+  box-shadow: 0px 0px 5px gray;
+}
+
+#bio ul:first-of-type {
+    margin: 0;
+    padding: 0;
+}
+
+#bio ul:first-of-type > li svg {
+    margin-right: 3px;
+    color: #3d93e3;
+}
+
