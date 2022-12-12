@@ -2,11 +2,14 @@ import React from "react";
 import { getIcon } from "./FontAwesomeIcons"
 
 export default function Form(props) {
+  /* Generates the fields: email, address, website, etc... This variable and
+    * the next could be made into a component, but is okay this way too I think. */
   const contactFields = props.data.contactInfo.map((field, index) => {
     const [k, v] = Object.entries(field)[0];
     return createInputField(k, v, index);
   });
 
+  /* Generates all the firelds in a section along with a fieldset */
   const sectionFields = props.data.sections.map((section, index) => {
     const subsections = section.subsections.map((subsection, idx) => {
       return (
@@ -40,6 +43,28 @@ export default function Form(props) {
         {subsections}
       </fieldset>
     )
+  });
+
+  const fancyProgressBars = props.data.fancyProgressBars.map((fpb, index) => {
+    const inputfields = fpb.bars.map((bar, index) => {
+      const [k, v] = Object.entries(bar)[0];
+      // values are in the form value/max
+      const [val, max] = v.split("/");
+      return (
+        <label>{k}
+          <input type="range" value={val} max={max} min="1" step="1" name={k} key={k} />
+        </label>
+      );
+    });
+    return (
+      <fieldset name="skills[]" onChange={(ev) => handleSkillBars(ev, index)}>
+        <legend>{fpb.skillName}</legend>
+        <label>Skill Name
+          <input type="text" name="skillName" value={fpb.skillName} />
+        </label>
+        {inputfields}
+      </fieldset>
+    );
   });
 
   const contactInfoButtons = [
@@ -119,6 +144,38 @@ export default function Form(props) {
     props.setData({...props.data, contactInfo: newContactInfo});
   }
 
+  function handleSkillBars(event, skillIndex) {
+    console.log(`SkillBar input name: ${event.target.name}.\tValue: ${event.target.value}`);
+    skillIndex = 0;
+    const name = event.target.name;
+    const value = event.target.value;
+
+    if (name === "skillName") {
+      const updated = props.data.fancyProgressBars.map((fpb, index) => {
+        if (index === skillIndex) {
+          return {...fpb, skillName: value};
+        }
+        return fpb;
+      })
+      props.setData({...props.data, fancyProgressBars: updated});
+    } else {
+      const fpb = props.data.fancyProgressBars.map((fpb, index) => {
+        if (index === skillIndex) {
+          const bars = fpb.bars.map((bar, index) => {
+            const k = Object.keys(bar)[0];
+            if (k === name) {
+              return {[name]: `${value}/5`};
+            }
+            return bar;
+          });
+          return {...fpb, "bars": bars};
+        }
+        return fpb;
+      });
+      props.setData({...props.data, fancyProgressBars: fpb});
+    }
+  }
+
   return (
     <form name="resumeForm">
       <fieldset name="basicInfo" onChange={handleBasicInfo}>
@@ -140,9 +197,20 @@ export default function Form(props) {
 
       { /* There can be multiple fieldsets with name "sections" */ }
       {sectionFields}
+
+      { /* "FancyProgressBars": these render as bars in resume */ }
+      <fieldset name="fancyProgressBars">
+        <legend>Skill</legend>
+        {/*<FancyProgressBars />*/}
+        {fancyProgressBars}
+      </fieldset>
     </form>
   );
 }
+
+
+
+/* Other helper functions */
 
 function createInputField(name, value, index) {
   return (

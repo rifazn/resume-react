@@ -53,15 +53,14 @@ function Sections(props) {
 
   /* Render the subsections that includes the timeperiods */
   function Subsections(props) {
-    const subsections = props.subsections;
     return props.subsections.map((subsection) => {
       return (
         <>
-          <div class="gutter"></div>
+          <div className="gutter"></div>
           <Time period={subsection.timeperiod} />
           <h3>{subsection.subject}</h3>
-          <div class="gutter"></div>
-          <div class="job-description">
+          <div className="gutter"></div>
+          <div className="job-description">
             <h4>{subsection.organization}</h4>
             <div dangerouslySetInnerHTML={{__html: md.render(subsection.description.join("\n"))}} />
           </div>

@@ -131,7 +131,9 @@
 	],
 
 	"fancyProgressBars": [
-		["Web development", "4/5"],
-		["Compression", "3/5"]
+		{
+			"skillName": "Languages",
+			"bars": [{"Web Development": "4/5"}, {"Compression": "3/5"}]
+		}
 	]
 }
