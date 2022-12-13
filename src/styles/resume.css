@@ -94,7 +94,7 @@ body {
     grid-column: 3;
 }
 
-#skills {
+.skills {
     display: grid;
     grid-template-columns: 50% 50%;
 }

@@ -9,6 +9,7 @@ function Resume(props) {
       <BasicInfo data={props.data} />
       <div id="sections">
         <Sections data={props.data} />
+        <SkillBars data={props.data.fancyProgressBars} />
       </div>
     </div>
   );
@@ -93,6 +94,46 @@ function Sections(props) {
       </>
       );
     })
+  );
+}
+
+function SkillBars(props) {
+  const skills = props.data.map((skill, index) => {
+    const header = (
+      <>
+        <h2 key={index}>{skill.skillName}</h2>
+        <div className="gutter" key={"gutter" + index}></div>
+      </>
+    );
+    const skills = skill.bars.map((bar, index) => {
+      let [k,v] = Object.entries(bar)[0];
+      let [v1, v2] = v.split('/'); // v is like 4/5, etc
+      v = v1/v2; // get a float value
+
+      return (
+        <div className="skill">
+          <p>{k}</p>
+          <div className="skill-level">
+            <span style={{width: v*100 + "%"}}></span>
+          </div>
+        </div>
+      );
+    });
+
+    return (
+      <>
+        {header}
+        <div className="skills">
+          {skills}
+        </div>
+      </>
+    );
+  });
+
+  return (
+    <>
+      {skills}
+    </>
   );
 }
 
