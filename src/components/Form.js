@@ -9,6 +9,17 @@ export default function Form(props) {
     return createInputField(k, v, index);
   });
 
+  const contactInfoButtons = [
+    "email", "address", "website", "date of birth", "other"
+  ].map((type) => {
+    return (
+      <button type="button" data-type={type}
+        onClick={(ev) => contactInfoButtonHandler(ev)}>
+        {getIcon(type)} Add {titleCase(type)}
+      </button>
+    );
+  });
+
   /* Generates all the firelds in a section along with a fieldset */
   const sectionFields = props.data.sections.map((section, index) => {
     const subsections = section.subsections.map((subsection, idx) => {
@@ -69,17 +80,6 @@ export default function Form(props) {
 		  </button>
         </fieldset>
       </fieldset>
-    );
-  });
-
-  const contactInfoButtons = [
-    "email", "address", "website", "date of birth", "other"
-  ].map((type) => {
-    return (
-      <button type="button" data-type={type}
-        onClick={(ev) => contactInfoButtonHandler(ev)}>
-        {getIcon(type)} Add {titleCase(type)}
-      </button>
     );
   });
 
@@ -177,6 +177,7 @@ export default function Form(props) {
     props.setData({...props.data, fancyProgressBars: updated});
   }
 
+/* Button Handlers ------------------------------------------- */
   function addToSkillTypeButtonHandler(event, skillIndex) {
     const fpb = props.data.fancyProgressBars.map((fpb, index) => {
       if (index === skillIndex) {
@@ -186,6 +187,15 @@ export default function Form(props) {
       return fpb;
     });
     props.setData({...props.data, fancyProgressBars: fpb});
+  }
+
+  function addSkillButtonHandler(event) {
+    const newBar = {
+      "skillName": "Clicking Buttons",
+      "bars": [{"Precision": "4/5"}, {"Conviction": "5/5"}]
+    }
+    const onemore = [...props.data.fancyProgressBars, newBar];
+    props.setData({...props.data, fancyProgressBars: onemore});
   }
 
   return (
@@ -212,6 +222,7 @@ export default function Form(props) {
 
       { /* "FancyProgressBars": these render as bars in resume */ }
 	  {fancyProgressBars}
+      <button type="button" onClick={addSkillButtonHandler}>Add another skill</button>
     </form>
   );
 }
