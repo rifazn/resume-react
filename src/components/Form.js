@@ -208,6 +208,9 @@ export default function Form(props) {
         <label>Tagline
           <input name="tagline" type="text" value={props.data.tagline} />
         </label>
+        <label>Photo URL
+          <input name="photo" type="url" value={props.data.photo} />
+        </label>
       </fieldset>
 
       { /* This fieldset can have varying number of input fields */ }

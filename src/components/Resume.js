@@ -38,7 +38,7 @@ function BasicInfo(props) {
       </div>
 
       <div>
-        <img src="photo-passport.png" alt="profile photo" />
+        <img src={props.data.photo} alt="profile photo" />
       </div>
 
     </div>
