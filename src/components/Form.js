@@ -51,18 +51,23 @@ export default function Form(props) {
       // values are in the form value/max
       const [val, max] = v.split("/");
       return (
-        <label>{k}
-          <input type="range" value={val} max={max} min="1" step="1" name={k} key={k} />
-        </label>
+        <>
+            <input type="text" name="skillItem" value={k} data-index={index} key={index} />
+            <input type="range" value={val} max={max} min="1" step="1" name={k} data-index={index} key={k} />
+        </>
       );
     });
     return (
       <fieldset name="skills[]" onChange={(ev) => handleSkillBars(ev, index)}>
-        <legend>{fpb.skillName}</legend>
-        <label>Skill Name
+        <legend>Skill</legend>
           <input type="text" name="skillName" value={fpb.skillName} />
-        </label>
-        {inputfields}
+        <fieldset>
+		  <legend>Confidence Level</legend>
+          {inputfields}
+		  <button data-skillname={fpb.skillName} type="button" onClick={(ev) => addToSkillTypeButtonHandler(ev, index)}>
+			Add Another
+		  </button>
+        </fieldset>
       </fieldset>
     );
   });
@@ -145,35 +150,42 @@ export default function Form(props) {
   }
 
   function handleSkillBars(event, skillIndex) {
-    console.log(`SkillBar input name: ${event.target.name}.\tValue: ${event.target.value}`);
-    skillIndex = 0;
     const name = event.target.name;
     const value = event.target.value;
 
-    if (name === "skillName") {
-      const updated = props.data.fancyProgressBars.map((fpb, index) => {
-        if (index === skillIndex) {
-          return {...fpb, skillName: value};
-        }
+    const updated = props.data.fancyProgressBars.map((fpb, index) => {
+      if (index !== skillIndex)
         return fpb;
-      })
-      props.setData({...props.data, fancyProgressBars: updated});
-    } else {
-      const fpb = props.data.fancyProgressBars.map((fpb, index) => {
-        if (index === skillIndex) {
-          const bars = fpb.bars.map((bar, index) => {
-            const k = Object.keys(bar)[0];
-            if (k === name) {
-              return {[name]: `${value}/5`};
-            }
-            return bar;
-          });
-          return {...fpb, "bars": bars};
-        }
-        return fpb;
+
+      if (name === "skillName") {
+        return {...fpb, skillName: value};
+      }
+
+      const bars = fpb.bars.map((bar, index) => {
+        const idx = parseInt(event.target.dataset.index);
+        const v = Object.values(bar)[0];
+
+        if (idx !== index)
+          return bar;
+        if (name === "skillItem")
+          return {[value]: v};
+
+        return {[name]: `${value}/5`};
       });
-      props.setData({...props.data, fancyProgressBars: fpb});
-    }
+      return {...fpb, "bars": bars};
+    });
+    props.setData({...props.data, fancyProgressBars: updated});
+  }
+
+  function addToSkillTypeButtonHandler(event, skillIndex) {
+    const fpb = props.data.fancyProgressBars.map((fpb, index) => {
+      if (index === skillIndex) {
+        const bars = [...fpb.bars, {'New Language': '5/5'}];
+        return {...fpb, bars: bars};
+      }
+      return fpb;
+    });
+    props.setData({...props.data, fancyProgressBars: fpb});
   }
 
   return (
@@ -199,11 +211,7 @@ export default function Form(props) {
       {sectionFields}
 
       { /* "FancyProgressBars": these render as bars in resume */ }
-      <fieldset name="fancyProgressBars">
-        <legend>Skill</legend>
-        {/*<FancyProgressBars />*/}
-        {fancyProgressBars}
-      </fieldset>
+	  {fancyProgressBars}
     </form>
   );
 }
