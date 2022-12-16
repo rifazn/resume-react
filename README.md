@@ -23,8 +23,13 @@ With this app, the user can:
 	2. [X] ~~Updating fields should happen by `key` attribute in react~~. By `index` and `id` attrs.
 	3. [~] ~~Install `nanoid` for that. Have `key` fields in data after app is loaded~~. Decided against random keys.
 	4. [~] ~~At time of finally saving the data, remove `key` from data.~~ No need.
-	5. [X] When `nanoid` is done, additionalfields can also be inside contactFields.~~ Done. Nanoid no need.
+	5. [X] ~~When `nanoid` is done, additionalfields can also be inside contactFields.~~ Done. Nanoid no need.
 	6. [X] `sections` is still remaining.
-	7. [ ] Progress Bars remaining.
-5. [ ] All data from form is correctly updated on the rendered resume.
-6. [ ] Fix styling and rest of the issues.
+	7. [X] Progress Bars remaining.
+5. [X] All data from form is correctly updated on the rendered resume.
+
+### Tasks remaining
+
+1. [ ] Deletable items.
+2. [ ] Collapsible form so it displays resume full width of window.
+3. [ ] 'Save and Generate PDF' button.

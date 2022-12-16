@@ -198,8 +198,18 @@ export default function Form(props) {
     props.setData({...props.data, fancyProgressBars: onemore});
   }
 
+  function compressButtonHandler(event) {
+    // const form = document.forms.resumeForm;
+    // form.classList.toggle('compressed');
+    const resume = document.querySelector('output');
+    resume.classList.toggle('expanded');
+  }
+
   return (
-    <form name="resumeForm">
+    <form name="resumeForm" className="resumeForm">
+      <button type="button" onClick={compressButtonHandler} className="overflow-x-visible">
+        Compress
+      </button>
       <fieldset name="basicInfo" onChange={handleBasicInfo}>
         <legend>Basic Info</legend>
         <label>Your Name

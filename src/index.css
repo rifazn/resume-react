@@ -8,8 +8,43 @@ body {
 }
 
 .App {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  overflow-y: hidden;
+}
+
+.resumeForm {
+  /* width: 45vw; */
+  border: 1px solid black;
+  padding: 5px;
+  height: 100vh;
+  overflow-y: scroll;
+  flex: 1 1 0;
+  overflow-x: hidden;
+  white-space: nowrap;
+}
+
+output {
+  /* flex: 1 1 auto; */
+  width: 55vw;
+  overflow-y: auto;
+  transition: all .5s;
+}
+
+#resume {
+  margin: 0 auto;
+}
+
+.expanded {
+  width: 95vw;
+  /* overflow-x: hidden; */
+  box-shadow: -5px 0 100px 0px gray;
+}
+
+.compressed {
+  width: 5vw;
+  overflow-x: hidden;
 }
 
 code {
@@ -36,6 +71,12 @@ input {
 label, textarea {
   display: block;
 }
+
+button {
+  padding: 5px;
+  margin: 5px;
+}
+
 
 .my-1rem {
   margin: 1rem 0;
