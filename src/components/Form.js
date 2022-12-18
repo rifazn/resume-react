@@ -1,5 +1,6 @@
 import React from "react";
-import { getIcon } from "./FontAwesomeIcons"
+import FormToggleButton from './Button';
+import { getIcon } from "./FontAwesomeIcons";
 
 export default function Form(props) {
   /* Generates the fields: email, address, website, etc... This variable and
@@ -198,18 +199,24 @@ export default function Form(props) {
     props.setData({...props.data, fancyProgressBars: onemore});
   }
 
-  function compressButtonHandler(event) {
-    // const form = document.forms.resumeForm;
-    // form.classList.toggle('compressed');
-    const resume = document.querySelector('output');
-    resume.classList.toggle('expanded');
-  }
+  // function compressButtonHandler(event) {
+  //   // const form = document.forms.resumeForm;
+  //   // form.classList.toggle('compressed');
+  //   const resume = document.querySelector('output');
+  //   resume.classList.toggle('expanded');
+    
+  //   const pressed = event.target.getAttribute("aria-pressed") === "true";
+  //   if (pressed)
+  //     btnIcon = getIcon("angle left");
+  //   else
+  //     btnIcon = getIcon("angle right");
+  // }
+
+  // let btnIcon = getIcon("angle left");
 
   return (
     <form name="resumeForm" className="resumeForm">
-      <button type="button" onClick={compressButtonHandler} className="overflow-x-visible">
-        Compress
-      </button>
+      <FormToggleButton />
       <fieldset name="basicInfo" onChange={handleBasicInfo}>
         <legend>Basic Info</legend>
         <label>Your Name

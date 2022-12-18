@@ -14,6 +14,13 @@ body {
   overflow-y: hidden;
 }
 
+header {
+  text-align: center;
+  background-color: white;
+  border-bottom: 1px solid black;
+  margin-bottom: 5px;
+}
+
 .resumeForm {
   /* width: 45vw; */
   border: 1px solid black;
@@ -45,6 +52,17 @@ output {
 .compressed {
   width: 5vw;
   overflow-x: hidden;
+}
+
+.expandBtn {
+    position: fixed;
+    top: 5px;
+    font-weight: 600;
+}
+
+.p10 {
+    padding-right: 1rem;
+    padding-left: .6rem;
 }
 
 code {

@@ -6,6 +6,9 @@ function App(props) {
   const [data, setData] = useState(props.data);
   return (
     <>
+      <header>
+        <h1>Resume</h1>
+      </header>
       <div className="App">
         <Form data={data} setData={setData} />
         <output htmlFor="resumeForm">
