@@ -78,8 +78,7 @@ function Sections(props) {
         <h3>{props.period}</h3>
       </div>
       <div className="decorator">
-        <div>
-        </div>
+        <div></div>
       </div>
       </>
     );

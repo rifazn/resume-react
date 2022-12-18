@@ -40,6 +40,9 @@ export default function Form(props) {
           <label>Timeperiod (Ex: Jun 2015 - Jan 2022)
             <input type="text" name="timeperiod" size="20" value={subsection.timeperiod} data-index={idx} />
           </label>
+          <button type="button" onClick={removeButtonHandler} data-index={[index,idx]}>
+            {getIcon('remove')}  Remove
+          </button>
         </fieldset>
       );
     });
@@ -197,6 +200,26 @@ export default function Form(props) {
     }
     const onemore = [...props.data.fancyProgressBars, newBar];
     props.setData({...props.data, fancyProgressBars: onemore});
+  }
+
+  function removeButtonHandler(event) {
+    const [section, subsection] = event.target.dataset.index.split(',');
+    const updated = props.data.sections.map((sec, idx) => {
+      const index = parseInt(section);
+      if (idx !== index)
+        return sec;
+
+      const updatedSubs = sec.subsections.filter((sub, idx) => {
+        const index = parseInt(subsection);
+        console.log(`Jeta paisi: ${index}`);
+        if (idx !== index)
+          return sub;
+      });
+
+      return {...sec, subsections: updatedSubs};
+    });
+
+    props.setData({...props.data, sections: updated});
   }
 
   // function compressButtonHandler(event) {
