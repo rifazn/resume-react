@@ -1,7 +1,7 @@
 import React from "react";
 import { getIcon } from "./FontAwesomeIcons"
 
-function FormToggleButton() {
+export function FormToggleButton() {
   // Setup
   const icons = {
     'expanded': <><span className="p10">{getIcon('angle left')}</span> Close Form</>,
@@ -24,6 +24,7 @@ function FormToggleButton() {
 
   }
 
+  // render
   return (
     <button type="button" onClick={compressButtonHandler} className="expandBtn">
       {content} 
@@ -31,4 +32,3 @@ function FormToggleButton() {
   );
 }
 
-export default FormToggleButton;

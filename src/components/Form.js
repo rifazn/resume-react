@@ -1,5 +1,5 @@
 import React from "react";
-import FormToggleButton from './Button';
+import { FormToggleButton } from './Button';
 import { getIcon } from "./FontAwesomeIcons";
 
 export default function Form(props) {
@@ -56,6 +56,9 @@ export default function Form(props) {
         </label>
 
         {subsections}
+
+        <button type="button" onClick={(ev) => sectionRemoveHandler(ev, index)}>
+          <span style={{color: "red"}}>{getIcon('remove')}</span> Remove Section </button>
       </fieldset>
     )
   });
@@ -222,24 +225,14 @@ export default function Form(props) {
     props.setData({...props.data, sections: updated});
   }
 
-  // function compressButtonHandler(event) {
-  //   // const form = document.forms.resumeForm;
-  //   // form.classList.toggle('compressed');
-  //   const resume = document.querySelector('output');
-  //   resume.classList.toggle('expanded');
-    
-  //   const pressed = event.target.getAttribute("aria-pressed") === "true";
-  //   if (pressed)
-  //     btnIcon = getIcon("angle left");
-  //   else
-  //     btnIcon = getIcon("angle right");
-  // }
+  function sectionRemoveHandler(ev, index) {
+    const updated = props.data.sections.filter((sec, idx) => idx !== parseInt(index));
+    props.setData({...props.data, sections: updated});
+  }
 
-  // let btnIcon = getIcon("angle left");
-
+/* Main render function */
   return (
     <form name="resumeForm" className="resumeForm">
-      <FormToggleButton />
       <fieldset name="basicInfo" onChange={handleBasicInfo}>
         <legend>Basic Info</legend>
         <label>Your Name

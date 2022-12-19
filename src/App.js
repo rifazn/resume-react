@@ -1,5 +1,6 @@
 import Form from "./components/Form";
 import Resume from "./components/Resume";
+import { FormToggleButton } from "./components/Button";
 import { useState } from 'react';
 
 function App(props) {
@@ -8,6 +9,7 @@ function App(props) {
     <>
       <header>
         <h1>Resume</h1>
+        <FormToggleButton />
       </header>
       <div className="App">
         <Form data={data} setData={setData} />
