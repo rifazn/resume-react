@@ -32,3 +32,18 @@ export function FormToggleButton() {
   );
 }
 
+export function SaveAndPrintButton(props) {
+  // handler
+  function handler() {
+    console.log(props.data);
+    window.print();
+  }
+
+  // rendered
+  return (
+    <button type="button" id="saveButton" onClick={handler}>
+      <span class="p10">{getIcon('print')}</span>
+      Save and Print
+    </button>
+  );
+}
