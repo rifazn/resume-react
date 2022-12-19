@@ -3,7 +3,11 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 
-import data from './resume-data.json'
+import defaultdata from './resume-data.json'
+
+const data = localStorage.getItem('data') ? JSON.parse(localStorage.getItem('data')) : defaultdata
+
+console.log(data);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

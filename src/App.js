@@ -12,7 +12,7 @@ function App(props) {
       </header>
       <nav class="navButtons biggerButtons">
         <FormToggleButton />
-        <SaveAndPrintButton data={props.data} />
+        <SaveAndPrintButton data={data} />
       </nav>
       <div className="App">
         <Form data={data} setData={setData} />
