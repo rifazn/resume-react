@@ -32,6 +32,10 @@ header {
   white-space: nowrap;
 }
 
+details > summary {
+  cursor: pointer;
+}
+
 output {
   /* flex: 1 1 auto; */
   width: 55vw;

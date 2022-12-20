@@ -25,6 +25,10 @@ export default function Form(props) {
   const sectionFields = props.data.sections.map((section, index) => {
     const subsections = section.subsections.map((subsection, idx) => {
       return (
+        <details>
+          <summary>
+            {subsection.subject}{subsection.organization? " - " + subsection.organization : ""}
+          </summary>
         <fieldset name="subsections[]" classNames="my-1rem">
           <label>Discipline (Degree, Position, Role, etc.)
             <input type="text" name="subject" size="20" value={subsection.subject} data-index={idx} />
@@ -44,6 +48,7 @@ export default function Form(props) {
             {getIcon('remove')}  Remove
           </button>
         </fieldset>
+        </details>
       );
     });
 
