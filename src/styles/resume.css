@@ -16,6 +16,12 @@ body {
     -webkit-box-shadow: 2px 2px 4px #AAAAAA;
 }
 
+
+/* Page breaks */
+* {
+    break-inside: avoid;
+}
+
 @media screen and (max-width: 800px) {
     body {
         font-size: 16pt;
@@ -58,8 +64,9 @@ body {
         display: none;
     }
     output {
-        width: 100%;
+        width: 100% !important; /* Override .expanded class value */
         height: 100%;
+        box-shadow: none;
     }
     .App {
         height: 100%;
@@ -72,7 +79,11 @@ body {
     /* https://developer.mozilla.org/en-US/docs/Web/CSS/@page */
     size: letter;
     /*margin: 0.5in 0.8in;*/
-    margin: 0;
+    margin: 0.4in 0;
+}
+
+@page:first {
+    margin-top: 0;
 }
 
 
@@ -167,12 +178,12 @@ h1, i, h2, h4 {
 /* Box Model Properties. Width, Height, Padding, Margin, etc. */
 
 #bio {
-    padding: 40px 60px;
+    padding: 40px 50px;
     background-color: #f5f5f5;
 }
 
 #sections {
-    padding: 40px 60px;
+    padding: 40px 50px;
     padding-top: 0;
 }
 

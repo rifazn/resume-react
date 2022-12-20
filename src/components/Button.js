@@ -21,7 +21,6 @@ export function FormToggleButton() {
       setContent(icons.expanded);
     else
       setContent(icons.closed);
-
   }
 
   // render
@@ -35,8 +34,8 @@ export function FormToggleButton() {
 export function SaveAndPrintButton(props) {
   // handler
   function handler() {
-    console.log(props.data);
     localStorage.setItem('data', JSON.stringify(props.data));
+
     window.print();
   }
 
