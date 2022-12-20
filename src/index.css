@@ -32,6 +32,11 @@ header {
   white-space: nowrap;
 }
 
+.inputHint {
+  font-size: 95%;
+  color: #444;
+}
+
 details > summary {
   cursor: pointer;
 }

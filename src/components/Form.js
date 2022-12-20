@@ -29,11 +29,13 @@ export default function Form(props) {
           <summary>
             {subsection.subject}{subsection.organization? " - " + subsection.organization : ""}
           </summary>
-        <fieldset name="subsections[]" classNames="my-1rem">
-          <label>Discipline (Degree, Position, Role, etc.)
+        <fieldset name="subsections[]" className="my-1rem">
+          <label>Discipline
+            <p className="inputHint">(Degree, Position, Role, etc.)</p>
             <input type="text" name="subject" size="20" value={subsection.subject} data-index={idx} />
           </label>
-          <label>Institute (School, Employer, Project Name, etc.)
+          <label>Institute
+            <p className="inputHint">(School, Employer, Project Name, etc.)</p>
             <input type="text" name="organization" size="20" value={subsection.organization} data-index={idx} />
           </label>
           <label>Description
@@ -41,7 +43,8 @@ export default function Form(props) {
               value={ subsection.description.reduce((string, line) => string + '\n' + line)}>
             </textarea>
           </label>
-          <label>Timeperiod (Ex: Jun 2015 - Jan 2022)
+          <label>Timeperiod
+            <p className="inputHint">(Ex: Jun 2015 - Jan 2022)</p>
             <input type="text" name="timeperiod" size="20" value={subsection.timeperiod} data-index={idx} />
           </label>
           <button type="button" onClick={removeButtonHandler} data-index={[index,idx]}>
