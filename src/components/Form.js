@@ -1,5 +1,5 @@
 import React from "react";
-import { FormToggleButton } from './Button';
+import { FormToggleButton, AddSectionButton } from './Button';
 import { getIcon } from "./FontAwesomeIcons";
 
 export default function Form(props) {
@@ -59,7 +59,8 @@ export default function Form(props) {
       <fieldset name="sections[]" classNames="my-2rem" key={index} onChange={(ev) => sectionHandler(ev, index)}>
         <legend>{section.title}</legend>
 
-        <label>Section Name (Ex: Education, Employment, Projects, etc.)
+        <label>Section Name
+          <small className="inputHint">(Ex: Education, Employment, Projects, etc.)</small>
           <input type="text" name="title" value={section.title} />
         </label>
 
@@ -263,6 +264,7 @@ export default function Form(props) {
 
       { /* There can be multiple fieldsets with name "sections" */ }
       {sectionFields}
+      <AddSectionButton data={props.data} setData={props.setData} />
 
       { /* "FancyProgressBars": these render as bars in resume */ }
 	  {fancyProgressBars}

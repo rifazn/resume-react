@@ -47,3 +47,27 @@ export function SaveAndPrintButton(props) {
     </button>
   );
 }
+
+export function AddSectionButton(props) {
+  // handler
+  function handleClick() {
+    const newSection = {
+      "title": "New Section",
+      "subsections": [{
+        "subject": "Noteworthy Venture",
+        "organization": "Workplace",
+        "description": [""],
+        "timeperiod": ""
+      }]
+    };
+    const sections = [...props.data.sections, newSection];
+    props.setData({...props.data, sections: sections});
+  }
+
+  // render
+  return (
+    <button type="button" className="addSectionButton" onClick={handleClick}>
+      {getIcon('add')} Add Another Section
+    </button>
+  );
+}

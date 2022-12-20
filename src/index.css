@@ -32,6 +32,10 @@ header {
   white-space: nowrap;
 }
 
+small {
+  display: block;
+}
+
 .inputHint {
   font-size: 95%;
   color: #444;
