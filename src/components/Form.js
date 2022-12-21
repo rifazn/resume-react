@@ -265,6 +265,8 @@ export default function Form(props) {
       <fieldset name="contactInfo" classNames="my-2rem" onChange={handleContactInfo}>
         <legend>Contact Info</legend>
         {contactFields}
+
+        <h3 className="like-legend">Add more</h3>
         {contactInfoButtons}
       </fieldset>
 

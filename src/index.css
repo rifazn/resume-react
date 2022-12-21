@@ -94,11 +94,13 @@ fieldset {
   margin: 0.5rem 0;
 }
 
-legend {
+legend, .like-legend {
     background-color: #000;
     color: #fff;
     padding: 3px 6px;
 }
+
+.like-legend { font-weight: 400; width: fit-content; }
 
 input {
     margin: .4rem 0;
@@ -121,4 +123,8 @@ button {
 
 .my-2rem {
   margin: 2rem 0;
+}
+
+.addMoreHr:after {
+  content: "Add More";
 }
