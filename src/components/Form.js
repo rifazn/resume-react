@@ -7,7 +7,7 @@ export default function Form(props) {
     * the next could be made into a component, but is okay this way too I think. */
   const contactFields = props.data.contactInfo.map((field, index) => {
     const [k, v] = Object.entries(field)[0];
-    return createInputField(k, v, index);
+    return createInputField(k, v, index, contactRemoveHandler);
   });
 
   const contactInfoButtons = [
@@ -73,7 +73,8 @@ export default function Form(props) {
         {subsections}
 
         <button type="button" onClick={(ev) => sectionRemoveHandler(ev, index)}>
-          <span style={{color: "red"}}>{getIcon('remove')}</span> Remove Section </button>
+          <span style={{color: "red"}}>{getIcon('remove')}</span> Remove Section
+        </button>
       </fieldset>
     )
   });
@@ -110,8 +111,6 @@ export default function Form(props) {
 
   function contactInfoButtonHandler(ev) {
     const btn = ev.target;
-    // const input = createInputField(btn.dataset.type, '', props.data.contactInfo.length);
-    // setAdditionalFields([...additionalFields, input]);
     const newFields = [...props.data.contactInfo, {[btn.dataset.type]: ''}];
     props.setData({...props.data, contactInfo: newFields});
   }
@@ -245,6 +244,11 @@ export default function Form(props) {
     props.setData({...props.data, sections: updated});
   }
 
+  function contactRemoveHandler(ev, index) {
+    const contactFields = props.data.contactInfo.filter((cf, idx) => idx !== parseInt(index));
+    props.setData({...props.data,  contactInfo: contactFields});
+  }
+
 /* Main render function */
   return (
     <form name="resumeForm" className="resumeForm">
@@ -285,14 +289,14 @@ export default function Form(props) {
 
 /* Other helper functions */
 
-function createInputField(name, value, index) {
+function createInputField(name, value, index, removeHandler) {
   return (
     <>
       <label key={"l" + index} className="d-block" for={"cf" + name + index}>
         {titleCase(name)}
       </label>
       <input type={getInputType(name)} name={name} key={"i" + index} value={value} data-iconName={name} data-id={index} id={"cf" + name + index} />
-      <button type="button" className="contactRemoveButton" key={"b" + index}>
+      <button type="button" className="contactRemoveButton" key={"b" + index} onClick={(ev) => removeHandler(ev, index)} >
         {getIcon('remove')}
       </button>
     </>
