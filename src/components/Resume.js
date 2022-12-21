@@ -22,7 +22,8 @@ function BasicInfo(props) {
     return (
       props.data.contactInfo.map((contact, i) => {
         const [type, val] = Object.entries(contact)[0];
-        return <li key={i}>{getIcon(type)} {val}</li>
+        if (val)
+          return <li key={i}>{getIcon(type)} {val}</li>
       })
     );
   }
