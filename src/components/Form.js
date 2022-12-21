@@ -286,11 +286,11 @@ export default function Form(props) {
 function createInputField(name, value, index) {
   return (
     <>
-      <label key={index} className="d-block" for={"cf" + name + index}>
+      <label key={"l" + index} className="d-block" for={"cf" + name + index}>
         {titleCase(name)}
       </label>
-      <input type={getInputType(name)} name={name} key={index} value={value} data-iconName={name} data-id={index} id={"cf" + name + index} />
-      <button type="button" className="contactRemoveButton">
+      <input type={getInputType(name)} name={name} key={"i" + index} value={value} data-iconName={name} data-id={index} id={"cf" + name + index} />
+      <button type="button" className="contactRemoveButton" key={"b" + index}>
         {getIcon('remove')}
       </button>
     </>
