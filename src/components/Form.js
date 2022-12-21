@@ -26,31 +26,37 @@ export default function Form(props) {
     const subsections = section.subsections.map((subsection, idx) => {
       return (
         <details>
+
           <summary>
             {subsection.subject}{subsection.organization? " - " + subsection.organization : ""}
           </summary>
-        <fieldset name="subsections[]" className="my-1rem">
-          <label>Discipline
-            <p className="inputHint">(Degree, Position, Role, etc.)</p>
-            <input type="text" name="subject" size="20" value={subsection.subject} data-index={idx} />
-          </label>
-          <label>Institute
-            <p className="inputHint">(School, Employer, Project Name, etc.)</p>
-            <input type="text" name="organization" size="20" value={subsection.organization} data-index={idx} />
-          </label>
-          <label>Description
-            <textarea rows="8" cols="50" data-index={idx} name="description"
-              value={ subsection.description.reduce((string, line) => string + '\n' + line)}>
-            </textarea>
-          </label>
-          <label>Timeperiod
-            <p className="inputHint">(Ex: Jun 2015 - Jan 2022)</p>
-            <input type="text" name="timeperiod" size="20" value={subsection.timeperiod} data-index={idx} />
-          </label>
-          <button type="button" onClick={removeButtonHandler} data-index={[index,idx]}>
-            {getIcon('remove')}  Remove
-          </button>
-        </fieldset>
+          
+          <fieldset name="subsections[]" className="my-1rem">
+            <label>Discipline
+              <p className="inputHint">(Degree, Position, Role, etc.)</p>
+              <input type="text" name="subject" className="d-block" size="20" value={subsection.subject} data-index={idx} />
+            </label>
+
+            <label>Institute
+              <p className="inputHint">(School, Employer, Project Name, etc.)</p>
+              <input type="text" name="organization" className="d-block" size="20" value={subsection.organization} data-index={idx} />
+            </label>
+
+            <label>Description
+              <textarea rows="8" cols="50" data-index={idx} name="description"
+                value={ subsection.description.reduce((string, line) => string + '\n' + line)}>
+              </textarea>
+            </label>
+
+            <label>Timeperiod
+              <p className="inputHint">(Ex: Jun 2015 - Jan 2022)</p>
+              <input type="text" name="timeperiod" className="d-block" size="20" value={subsection.timeperiod} data-index={idx} />
+            </label>
+
+            <button type="button" onClick={removeButtonHandler} data-index={[index,idx]}>
+              {getIcon('remove')}  Remove
+            </button>
+          </fieldset>
         </details>
       );
     });
@@ -61,7 +67,7 @@ export default function Form(props) {
 
         <label>Section Name
           <small className="inputHint">(Ex: Education, Employment, Projects, etc.)</small>
-          <input type="text" name="title" value={section.title} />
+          <input type="text" name="title" className="d-block" value={section.title} />
         </label>
 
         {subsections}
@@ -79,7 +85,7 @@ export default function Form(props) {
       const [val, max] = v.split("/");
       return (
         <>
-            <input type="text" name="skillItem" value={k} data-index={index} key={index} />
+            <input type="text" name="skillItem" className="d-block" value={k} data-index={index} key={index} />
             <input type="range" value={val} max={max} min="1" step="1" name={k} data-index={index} key={k} />
         </>
       );
@@ -87,7 +93,7 @@ export default function Form(props) {
     return (
       <fieldset name="skills[]" onChange={(ev) => handleSkillBars(ev, index)}>
         <legend>Skill</legend>
-          <input type="text" name="skillName" value={fpb.skillName} />
+          <input type="text" name="skillName" className="d-block" value={fpb.skillName} />
         <fieldset>
 		  <legend>Confidence Level</legend>
           {inputfields}
@@ -157,7 +163,7 @@ export default function Form(props) {
   function handleContactInfo(event) {
     const val = event.target.value;
     const name = event.target.name;
-    const id = parseInt(event.target.id);
+    const id = parseInt(event.target.dataset.id);
     const newContactInfo = props.data.contactInfo.map((contact, index) => {
       if (index === id) return {[name]: val};
       return contact;
@@ -245,13 +251,13 @@ export default function Form(props) {
       <fieldset name="basicInfo" onChange={handleBasicInfo}>
         <legend>Basic Info</legend>
         <label>Your Name
-          <input name="name" type="text" value={props.data.name} />
+          <input name="name" className="d-block" type="text" value={props.data.name} />
         </label>
         <label>Tagline
-          <input name="tagline" type="text" value={props.data.tagline} />
+          <input name="tagline" className="d-block" type="text" value={props.data.tagline} />
         </label>
         <label>Photo URL
-          <input name="photo" type="url" value={props.data.photo} />
+          <input name="photo" className="d-block" type="url" value={props.data.photo} />
         </label>
       </fieldset>
 
@@ -279,9 +285,15 @@ export default function Form(props) {
 
 function createInputField(name, value, index) {
   return (
-    <label key={index}>{titleCase(name)}
-      <input type={getInputType(name)} name={name} id={index} value={value} data-iconName={name} />
-    </label>
+    <>
+      <label key={index} className="d-block" for={"cf" + name + index}>
+        {titleCase(name)}
+      </label>
+      <input type={getInputType(name)} name={name} key={index} value={value} data-iconName={name} data-id={index} id={"cf" + name + index} />
+      <button type="button" className="contactRemoveButton">
+        {getIcon('remove')}
+      </button>
+    </>
   );
 
 }

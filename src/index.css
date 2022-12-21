@@ -103,10 +103,9 @@ legend {
 input {
     margin: .4rem 0;
     padding: 0.2rem;
-    display: block;
 }
 
-label, textarea {
+.d-block {
   display: block;
 }
 
