@@ -44,7 +44,8 @@ export default function Form(props) {
 
             <label>Description
               <textarea rows="8" cols="50" data-index={idx} name="description"
-                value={ subsection.description.reduce((string, line) => string + '\n' + line)}>
+                value={ subsection.description.reduce((string, line) => string + '\n' + line)}
+              className="d-block">
               </textarea>
             </label>
 
@@ -252,6 +253,7 @@ export default function Form(props) {
 /* Main render function */
   return (
     <form name="resumeForm" className="resumeForm">
+      <header><h1>Resume Form</h1></header>
       <fieldset name="basicInfo" onChange={handleBasicInfo}>
         <legend>Basic Info</legend>
         <label>Your Name

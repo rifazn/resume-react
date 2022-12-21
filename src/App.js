@@ -7,9 +7,6 @@ function App(props) {
   const [data, setData] = useState(props.data);
   return (
     <>
-      <header>
-        <h1>Resume</h1>
-      </header>
       <nav class="navButtons biggerButtons">
         <FormToggleButton />
         <SaveAndPrintButton data={data} />
