@@ -82,8 +82,10 @@ output {
 
 .biggerButtons button {
   height: 2.5rem;
-  padding-right: 15px;
+  padding: 1em;
 }
+
+.navButtons svg { vertical-align: text-top; }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',

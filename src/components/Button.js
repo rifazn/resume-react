@@ -4,8 +4,8 @@ import { getIcon } from "./FontAwesomeIcons"
 export function FormToggleButton() {
   // Setup
   const icons = {
-    'expanded': <><span className="p10">{getIcon('angle left')}</span> Close Form</>,
-    'closed'  : <><span className="p10">{getIcon('angle right')}</span> Expand Form</>
+    'expanded': getIcon('angle left'),
+    'closed'  : getIcon('angle right')
   };
   const [content, setContent] = React.useState(icons.expanded);
 
@@ -25,7 +25,7 @@ export function FormToggleButton() {
 
   // render
   return (
-    <button type="button" onClick={compressButtonHandler} className="expandBtn">
+    <button type="button" onClick={compressButtonHandler} className="expandBtn" aria-label="Close Form">
       {content} 
     </button>
   );
@@ -41,9 +41,8 @@ export function SaveAndPrintButton(props) {
 
   // rendered
   return (
-    <button type="button" id="saveButton" onClick={handler}>
-      <span class="p10">{getIcon('print')}</span>
-      Save and Print
+    <button type="button" id="saveButton" aria-label="Save and Print" onClick={handler}>
+      {getIcon('print')}
     </button>
   );
 }
