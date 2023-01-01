@@ -4,8 +4,8 @@ import { getIcon } from "./FontAwesomeIcons"
 export function FormToggleButton() {
   // Setup
   const icons = {
-    'expanded': getIcon('angle left'),
-    'closed'  : getIcon('angle right')
+    'expanded': <>{getIcon('angle left')} <span id="visually-hidden">Close Form</span></>,
+    'closed'  : <>{getIcon('angle right')} <span id="visually-hidden">Expand Form</span></>
   };
   const [content, setContent] = React.useState(icons.expanded);
 
@@ -14,18 +14,18 @@ export function FormToggleButton() {
     const resume = document.querySelector('output');
     resume.classList.toggle('expanded');
     
-    const pressed = event.target.getAttribute("aria-pressed") === "true";
-    event.target.setAttribute("aria-pressed", !pressed);
+    const expanded = event.target.getAttribute("aria-expanded") === "true";
+    event.target.setAttribute("aria-expanded", !expanded);
 
-    if (pressed)
-      setContent(icons.expanded);
-    else
+    if (expanded)
       setContent(icons.closed);
+    else
+      setContent(icons.expanded);
   }
 
   // render
   return (
-    <button type="button" onClick={compressButtonHandler} className="expandBtn" aria-label="Close Form">
+    <button type="button" onClick={compressButtonHandler} className="expandBtn" aria-label="Close Form" aria-expanded>
       {content} 
     </button>
   );

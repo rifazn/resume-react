@@ -130,3 +130,14 @@ button {
 .addMoreHr:after {
   content: "Add More";
 }
+
+@media screen and (max-width: 811px) {
+  output {
+    width: 1vw;
+  }
+  .expanded {
+    width: 100vw;
+  }
+  #visually-hidden { display: none; }
+}
+
