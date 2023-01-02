@@ -1,5 +1,5 @@
 import React from "react";
-import { FormToggleButton, AddSectionButton } from './Button';
+import { AddSectionButton } from './Button';
 import { getIcon } from "./FontAwesomeIcons";
 
 export default function Form(props) {
@@ -229,9 +229,7 @@ export default function Form(props) {
 
       const updatedSubs = sec.subsections.filter((sub, idx) => {
         const index = parseInt(subsection);
-        console.log(`Jeta paisi: ${index}`);
-        if (idx !== index)
-          return sub;
+        return idx !== index
       });
 
       return {...sec, subsections: updatedSubs};

@@ -23,7 +23,9 @@ function BasicInfo(props) {
       props.data.contactInfo.map((contact, i) => {
         const [type, val] = Object.entries(contact)[0];
         if (val)
-          return <li key={i}>{getIcon(type)} {val}</li>
+          return <li key={i}>{getIcon(type)} {val}</li>;
+        else
+          return <></>;
       })
     );
   }
@@ -39,7 +41,7 @@ function BasicInfo(props) {
       </div>
 
       <div>
-        <img src={props.data.photo} alt="profile photo" />
+        <img src={props.data.photo} alt="profile" />
       </div>
 
     </div>

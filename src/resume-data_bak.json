@@ -1,0 +1,85 @@
+{
+	"name": "Richard Hendricks",
+	"tagline": "CEO and Software Engineer with knowledge of applied information theory including optimizing lossless compression schema of both the length-limited and adaptive variants.",
+	"photo": "http://www.magicalquote.com/wp-content/uploads/2015/07/Richard-Hendricks.jpg",
+
+	"contactInfo": [
+		{"email": "richard.hendriks@piedpiper.com"},
+		{"phone": "(912) 555-4321"},
+		{"address": "San Francisco, CA"},
+		{"nationality": ""},
+		{"website": "piedpiper.example.com"}
+	],
+
+	"sections": [
+		{
+			"title": "Experience",
+
+			"subsections": [
+				{
+					"subject": "CEO/President",
+					"organization": "Pied Piper",
+					"description": [
+						"Pied Piper is a multi-platform technology based on a proprietary universal compression algorithm that has consistently fielded high Weisman Scores™ that are not merely competitive, but approach the theoretical limit of lossless compression.",
+						"+ Build an algorithm for artist to detect if their music was violating copyright infringement laws",
+						"+ Successfully won Techcrunch Disrupt",
+						"+ Optimized an algorithm that holds the current world record for Weisman Scores"
+					],
+					"timeperiod": "Dec 2013 – Dec 2014",
+					"decorator": true
+				},
+				{
+					"subject": "Teacher",
+					"organization": "CoderDojo",
+					"description": [
+						"Global movement of free coding clubs for young people.",
+						"+ Awarded 'Teacher of the Month'"
+					],
+					"timeperiod": "July 2013 – Dec 2013",
+					"decorator": true
+				}
+			]
+		},
+
+		{
+			"title": "Projects",
+
+			"subsections": [
+				{
+					"subject": "Miss Direction",
+					"description": [
+						"+ Won award at AIHacks 2016",
+						"+ Built by all women team of newbie programmers",
+						"+ Using modern technologies such as GoogleMaps, Chrome Extension and Javascript"
+					],
+					"timeperiod": "Aug 2016",
+					"decorator": true
+				}
+			]
+		},
+
+		{
+			"title": "Education",
+
+			"subsections": [
+				{
+					"subject": "BA Information Technology",
+					"organization": "University of Oklahoma",
+					"description": [
+						"+ GPA 4.0",
+						"+ DB1101 - Basic SQL",
+						"+ CS2011 - Java Introduction"
+					],
+					"decorator": true
+				}
+			]
+		}
+	],
+
+	"fancyProgressBars": [
+		{
+			"skillName": "Skills",
+			"bars": [{"Web Development: HTML, CSS, JS": "5/5"}, {"Compression: Mpeg, MP4, GIF": "4/5"}]
+		}
+	]
+}
