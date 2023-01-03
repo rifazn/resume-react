@@ -53,7 +53,7 @@ function Sections(props) {
    * and subsections, which include the subject of the topic (like job role,
     * education degree), name of the organization (a schoold, or place of
     * employment), and a description of the role */
-  const md = new Remarkable();
+	const md = new Remarkable({breaks: true});
 
   /* Render the subsections that includes the timeperiods */
   function Subsections(props) {

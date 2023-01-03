@@ -108,7 +108,7 @@ export default function Form(props) {
   });
 
 
-  /* Event handlers --------------------------------------- */
+  /* Input event handlers --------------------------------------- */
 
   function contactInfoButtonHandler(ev) {
     const btn = ev.target;
@@ -128,7 +128,6 @@ export default function Form(props) {
 
     // "title" is not inside any subsections. Return early
     if (name === "title") {
-      console.log("editing title")
       const sections = props.data.sections.map((section, idx) => {
         if (idx === parseInt(sectionIndex))
           return {...section, [name]: value};
