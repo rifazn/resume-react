@@ -17,75 +17,10 @@ body {
 }
 
 
-/* Page breaks */
+/* Page breaks. TODO: page-break not working correctly at the moment */
 * {
     break-inside: avoid;
 }
-
-@media screen and (max-width: 800px) {
-    body {
-        font-size: 16pt;
-        margin: 0;
-        padding: 0;
-        background: #FFFFFF !important;
-    }
-    #resume {
-        margin: 0;
-        /* padding: 1em; */
-        border: 0px;
-        background: none;
-        box-shadow: none;
-        -webkit-box-shadow: none;
-    }
-}
-
-@media print {
-    body {
-        font-size: 10pt;
-        margin: 0;
-        padding: 0;
-        background: none;
-    }
-    #resume {
-        margin: 0;
-        padding: 0;
-        border: 0px;
-        background: none;
-        box-shadow: none;
-        -webkit-box-shadow: none;
-    }
-    /* Make links black in PDF */
-    a, a:link, a:visited, a:hover {
-        color: #000000;
-        text-decoration: underline;
-    }
-
-    form[name=resumeForm], .navButtons, header {
-        display: none;
-    }
-    output {
-        width: 100% !important; /* Override .expanded class value */
-        height: 100%;
-        box-shadow: none;
-    }
-    .App {
-        height: 100%;
-        width: 100%;
-    }
-}
-
-@page {
-    /* Change margins and paper size of PDF */
-    /* https://developer.mozilla.org/en-US/docs/Web/CSS/@page */
-    size: letter;
-    /*margin: 0.5in 0.8in;*/
-    margin: 0.4in 0;
-}
-
-@page:first {
-    margin-top: 0;
-}
-
 
 /* Layout Settings. Mainly `display` related rules here */
 #bio {
@@ -126,6 +61,7 @@ body {
 /* Font Settings */
 body {
     font: 1em "Raleway", "Libertinus Sans", "Calibri", "Helvetica", sans-serif;
+		font-variant-ligatures: no-common-ligatures;
     color: #000000;
     line-height: 1.15;
 }
@@ -293,3 +229,67 @@ h4 { margin-top: 0; margin-bottom: 0.12em; }
     color: #3d93e3;
 }
 
+/* Print and page rules */
+@media screen and (max-width: 800px) {
+    body {
+        font-size: 16pt;
+        margin: 0;
+        padding: 0;
+        background: #FFFFFF !important;
+    }
+    #resume {
+        margin: 0;
+        /* padding: 1em; */
+        border: 0px;
+        background: none;
+        box-shadow: none;
+        -webkit-box-shadow: none;
+    }
+}
+
+@media print {
+    body {
+        font-size: 10pt;
+        margin: 0;
+        padding: 0;
+        background: none;
+    }
+    #resume {
+        margin: 0;
+        padding: 0;
+        border: 0px;
+        background: none;
+        box-shadow: none;
+        -webkit-box-shadow: none;
+    }
+    /* Make links black in PDF */
+    a, a:link, a:visited, a:hover {
+        color: #000000;
+        text-decoration: underline;
+    }
+
+    form[name=resumeForm], .navButtons, header {
+        display: none;
+    }
+    output {
+        width: 100% !important; /* Override .expanded class value */
+        height: 100%;
+        box-shadow: none;
+    }
+    .App {
+        height: 100%;
+        width: 100%;
+    }
+}
+
+@page {
+    /* Change margins and paper size of PDF */
+    /* https://developer.mozilla.org/en-US/docs/Web/CSS/@page */
+    size: letter;
+    /*margin: 0.5in 0.8in;*/
+    margin: 0.4in 0;
+}
+
+@page:first {
+    margin-top: 0;
+}
