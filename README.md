@@ -19,3 +19,4 @@ With this app, the user can:
 2. [X] Collapsible form so it displays resume full width of window.
 3. [X] 'Save and Generate PDF' button.
 4. [ ] "Add another subsection button"
+5. [ ] Experiment with making the nav buttons "sticky"
