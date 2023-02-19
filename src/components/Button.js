@@ -47,6 +47,31 @@ export function SaveAndPrintButton(props) {
   );
 }
 
+export function UploadJSONButton(props) {
+  // handler
+  function handler(ev) {
+    const reader = new FileReader()
+    reader.addEventListener('load', (ev) => {
+      const data = JSON.parse(ev.target.result);
+      props.setData(data);
+    })
+    reader.readAsText(ev.target.files[0]);
+  }
+  function btnHandler(ev) {
+    document.getElementById('jsonInput').click();
+  }
+
+  // rendered
+  return (
+    <>
+      <button type="button" onClick={btnHandler}>
+        Upload your profile
+      </button>
+      <input type="file" id="jsonInput" onChange={handler} />
+    </>
+  );
+}
+
 export function AddSectionButton(props) {
   // handler
   function handleClick() {

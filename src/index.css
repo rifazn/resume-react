@@ -80,12 +80,18 @@ output {
     padding-left: .6rem;
 }
 
-.biggerButtons button {
+.biggerButtons button,.biggerButtons label {
   height: 2.5rem;
   padding: 1em;
 }
 
 .navButtons svg { vertical-align: text-top; }
+
+#jsonInput {
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  width: 1px;
+}
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
