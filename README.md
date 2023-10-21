@@ -18,7 +18,7 @@ With this app, the user can:
 1. [X] Deletable items.
 2. [X] Collapsible form so it displays resume full width of window.
 3. [X] 'Save and Generate PDF' button.
-4. [ ] "Add another subsection button"
+4. [X] "Add another subsection button"
 5. [ ] Experiment with making the nav buttons "sticky"
 6. [ ] SUpport line breaks in "description"
 7. [ ] A way to reorder subsections

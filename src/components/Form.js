@@ -54,6 +54,10 @@ export default function Form(props) {
               <input type="text" name="timeperiod" className="d-block" size="20" value={subsection.timeperiod} data-index={idx} />
             </label>
 
+            <button type="button" onClick={addButtonHandler} data-index={[index,idx]}>
+              {getIcon('add')}  Add
+            </button>
+
             <button type="button" onClick={removeButtonHandler} data-index={[index,idx]}>
               {getIcon('remove')}  Remove
             </button>
@@ -217,6 +221,36 @@ export default function Form(props) {
     }
     const onemore = [...props.data.fancyProgressBars, newBar];
     props.setData({...props.data, fancyProgressBars: onemore});
+  }
+
+  function addButtonHandler(event) {
+    const newSubSection = {
+      "subject": "New Sub-section",
+      "organization": "Sample Text",
+      "description": [
+        "Para suppoting _markdown_. Sample list:",
+        "+ Build an algorithm",
+        "+ Fix problem",
+        "+ Optimize the algorithm"
+      ],
+      "timeperiod": "Dec 2013 – Dec 2014",
+      "decorator": true
+    }
+
+    const section = event.target.dataset.index.split(',')[0]
+
+    const updated = props.data.sections.map((sec, idx) => {
+      const index = parseInt(section)
+
+      if (idx !== index)
+        return sec
+
+      sec.subsections = [...sec.subsections, newSubSection]
+      return sec
+
+    })
+
+    props.setData({...props.data, sections: updated})
   }
 
   function removeButtonHandler(event) {

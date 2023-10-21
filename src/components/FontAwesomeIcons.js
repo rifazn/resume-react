@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faEnvelope, faPhone, faGlobe, faFlag, faHome, faAngleRight, faCalendarDays, faAngleLeft, faTrashCan, faPrint } from '@fortawesome/free-solid-svg-icons'
+import { faEnvelope, faPhone, faGlobe, faFlag, faHome, faAngleRight, faCalendarDays, faAngleLeft, faTrashCan, faPrint, faPlus } from '@fortawesome/free-solid-svg-icons'
 
 // Icon instances mapped by "type" of field
 export function getIcon(type) {
@@ -18,6 +18,8 @@ export function getIcon(type) {
       return <FontAwesomeIcon icon={faCalendarDays} />;
     case "print":
       return <FontAwesomeIcon icon={faPrint} />;
+    case "add":
+      return <FontAwesomeIcon icon={faPlus} />;
     case "remove":
       return <FontAwesomeIcon icon={faTrashCan} />;
     case "angle left":
