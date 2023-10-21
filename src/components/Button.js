@@ -4,8 +4,8 @@ import { getIcon } from "./FontAwesomeIcons"
 export function FormToggleButton() {
   // Setup
   const icons = {
-    'expanded': <>{getIcon('angle left')} <span id="visually-hidden">Close Form</span></>,
-    'closed'  : <>{getIcon('angle right')} <span id="visually-hidden">Expand Form</span></>
+    'expanded': <>{getIcon('angle left')} <span id="visually-hidden">Maximize Résumé</span></>,
+    'closed'  : <>{getIcon('angle right')} <span id="visually-hidden">Shrink Résumé</span></>
   };
   const [content, setContent] = React.useState(icons.expanded);
 
