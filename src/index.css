@@ -68,10 +68,8 @@ output {
 }
 
 .navButtons {
-    position: fixed;
-    /* top: 3px; */
+    position: sticky;
     bottom: 5px;
-    left: 5px;
     font-weight: 600;
 }
 

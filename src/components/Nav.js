@@ -1,4 +1,6 @@
-export function navBars() {
+import { FormToggleButton, SaveAndPrintButton, UploadJSONButton } from "./Button";
+
+export function NavBars(data, setData) {
   return (
     <nav class="navButtons biggerButtons">
       <FormToggleButton />

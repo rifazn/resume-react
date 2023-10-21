@@ -1,6 +1,7 @@
 import React from "react";
 import { AddSectionButton } from './Button';
 import { getIcon } from "./FontAwesomeIcons";
+import { NavBars } from "./Nav";
 
 export default function Form(props) {
   /* Generates the fields: email, address, website, etc... This variable and
@@ -99,13 +100,13 @@ export default function Form(props) {
     return (
       <fieldset name="skills[]" onChange={(ev) => handleSkillBars(ev, index)}>
         <legend>Skill</legend>
-          <input type="text" name="skillName" className="d-block" value={fpb.skillName} />
+        <input type="text" name="skillName" className="d-block" value={fpb.skillName} />
         <fieldset>
-		  <legend>Confidence Level</legend>
+          <legend>Confidence Level</legend>
           {inputfields}
-		  <button data-skillname={fpb.skillName} type="button" onClick={(ev) => addToSkillTypeButtonHandler(ev, index)}>
-			Add Another
-		  </button>
+          <button data-skillname={fpb.skillName} type="button" onClick={(ev) => addToSkillTypeButtonHandler(ev, index)}>
+            Add Another
+          </button>
         </fieldset>
       </fieldset>
     );
@@ -312,8 +313,13 @@ export default function Form(props) {
       <AddSectionButton data={props.data} setData={props.setData} />
 
       { /* "FancyProgressBars": these render as bars in resume */ }
-	  {fancyProgressBars}
-      <button type="button" onClick={addSkillButtonHandler}>Add another skill</button>
+      {fancyProgressBars}
+      <button type="button" onClick={addSkillButtonHandler}>
+        Add another skill
+      </button>
+
+      <NavBars data={props.data} setData={props.setData} />
+
     </form>
   );
 }
